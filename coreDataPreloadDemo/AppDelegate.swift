@@ -14,8 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    var managedObjectContext: NSManagedObjectContext!
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        preloadData()
         // Override point for customization after application launch.
         return true
     }
@@ -88,6 +94,89 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func parseCSV (_ contentOfURL: URL, encoding: String.Encoding) -> [(name: String, detail: String, price: String)]? {
+        let delimiter = ","
+        var items: [(name: String, detail: String, price: String)]?
+        do {
+            let content = try String(contentsOf: contentOfURL, encoding: encoding)
+            items = []
+            let lines:[String] = content.components(separatedBy: CharacterSet.newlines) as [String]
+            for line in lines {
+                var values:[String] = []
+                if line != "" {
+                    if line.range(of: "\"") != nil {
+                        var textToScan:String = line
+                        var value:NSString?
+                        var textScaner:Scanner = Scanner(string: textToScan)
+                        while textScaner.string != "" {
+                            if (textScaner.string as NSString).substring(to: 1) == "\"" {
+                                textScaner.scanLocation += 1
+                                textScaner.scanUpTo("\"", into: &value)
+                                textScaner.scanLocation += 1
+                            } else {
+                                textScaner.scanUpTo(delimiter, into: &value)
+                            }
+                            
+                            values.append(value! as String)
+                            
+                            if textScaner.scanLocation < textScaner.string.characters.count {
+                                textToScan = (textScaner.string as NSString).substring(from: textScaner.scanLocation + 1)
+                            } else {
+                                textToScan = ""
+                            }
+                            textScaner = Scanner(string: textToScan)
+                        }
+                        
+                    } else {
+                        values = line.components(separatedBy: delimiter)
+                    }
+                    
+                    let item = (name: values[0], detail: values[1], price: values[2])
+                    items?.append(item)
+                }
+            }
+        } catch {
+            print("error")
+        }
+        return items
+    }
+    
+    func preloadData () {
+        
+        removeData()
+        
+        let remoteURL = URL(string: "https://s3.amazonaws.com/swiftbook/menudata.csv")
+        if let items = parseCSV(remoteURL!, encoding: String.Encoding.utf8) {
+            print(items)
+            for item in items {
+                let context = NSEntityDescription.insertNewObject(forEntityName: "MenuItem", into: managedObjectContext) as! MenuItem
+                context.name = item.name
+                context.detail = item.detail
+                context.price = (item.price as NSString).doubleValue
+
+                do {
+                    try managedObjectContext.save()
+                } catch {
+                    print("can not save")
+                }
+            }
+        }
+        
+    }
+    
+    func removeData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MenuItem")
+        do {
+            let items = try managedObjectContext.fetch(fetchRequest) as! [MenuItem]
+            for item in items {
+                managedObjectContext.delete(item)
+            }
+        } catch {
+            print("error")
+        }
+    }
+
 
 }
 

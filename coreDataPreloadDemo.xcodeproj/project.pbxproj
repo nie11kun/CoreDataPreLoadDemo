@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A971456B1F2ABE01008246DD /* AddMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A971456A1F2ABE01008246DD /* AddMenuItemViewController.swift */; };
+		A971456D1F2ABE1C008246DD /* DetailMenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A971456C1F2ABE1C008246DD /* DetailMenuItemViewController.swift */; };
 		A99645FF1F29C95E00E3289B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99645FE1F29C95E00E3289B /* AppDelegate.swift */; };
-		A99646011F29C95E00E3289B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99646001F29C95E00E3289B /* ViewController.swift */; };
 		A99646041F29C95E00E3289B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A99646021F29C95E00E3289B /* Main.storyboard */; };
 		A99646071F29C95E00E3289B /* coreDataPreloadDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A99646051F29C95E00E3289B /* coreDataPreloadDemo.xcdatamodeld */; };
 		A99646091F29C95E00E3289B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99646081F29C95E00E3289B /* Assets.xcassets */; };
 		A996460C1F29C95E00E3289B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A996460A1F29C95E00E3289B /* LaunchScreen.storyboard */; };
 		A99646171F29C95F00E3289B /* coreDataPreloadDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99646161F29C95F00E3289B /* coreDataPreloadDemoTests.swift */; };
+		A99646221F29CB8A00E3289B /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99646211F29CB8A00E3289B /* MenuTableViewController.swift */; };
+		A99646241F29CBB500E3289B /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99646231F29CBB500E3289B /* FoodTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A971456A1F2ABE01008246DD /* AddMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMenuItemViewController.swift; sourceTree = "<group>"; };
+		A971456C1F2ABE1C008246DD /* DetailMenuItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailMenuItemViewController.swift; sourceTree = "<group>"; };
 		A99645FB1F29C95E00E3289B /* coreDataPreloadDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coreDataPreloadDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99645FE1F29C95E00E3289B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A99646001F29C95E00E3289B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A99646031F29C95E00E3289B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A99646061F29C95E00E3289B /* coreDataPreloadDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreDataPreloadDemo.xcdatamodel; sourceTree = "<group>"; };
 		A99646081F29C95E00E3289B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		A99646121F29C95E00E3289B /* coreDataPreloadDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coreDataPreloadDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99646161F29C95F00E3289B /* coreDataPreloadDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataPreloadDemoTests.swift; sourceTree = "<group>"; };
 		A99646181F29C95F00E3289B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A99646211F29CB8A00E3289B /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		A99646231F29CBB500E3289B /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +86,11 @@
 			isa = PBXGroup;
 			children = (
 				A99645FE1F29C95E00E3289B /* AppDelegate.swift */,
-				A99646001F29C95E00E3289B /* ViewController.swift */,
 				A99646021F29C95E00E3289B /* Main.storyboard */,
+				A971456A1F2ABE01008246DD /* AddMenuItemViewController.swift */,
+				A971456C1F2ABE1C008246DD /* DetailMenuItemViewController.swift */,
+				A99646211F29CB8A00E3289B /* MenuTableViewController.swift */,
+				A99646231F29CBB500E3289B /* FoodTableViewCell.swift */,
 				A99646081F29C95E00E3289B /* Assets.xcassets */,
 				A996460A1F29C95E00E3289B /* LaunchScreen.storyboard */,
 				A996460D1F29C95E00E3289B /* Info.plist */,
@@ -204,9 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A971456B1F2ABE01008246DD /* AddMenuItemViewController.swift in Sources */,
 				A99646071F29C95E00E3289B /* coreDataPreloadDemo.xcdatamodeld in Sources */,
-				A99646011F29C95E00E3289B /* ViewController.swift in Sources */,
+				A99646241F29CBB500E3289B /* FoodTableViewCell.swift in Sources */,
 				A99645FF1F29C95E00E3289B /* AppDelegate.swift in Sources */,
+				A99646221F29CB8A00E3289B /* MenuTableViewController.swift in Sources */,
+				A971456D1F2ABE1C008246DD /* DetailMenuItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +430,7 @@
 				A996461D1F29C95F00E3289B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A996461E1F29C95F00E3289B /* Build configuration list for PBXNativeTarget "coreDataPreloadDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +439,7 @@
 				A99646201F29C95F00E3289B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
